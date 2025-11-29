@@ -6,6 +6,68 @@
     <title>Admin Dashboard</title>
 </head>
 <body>
-    <h1>welcome</h1>
+    <h1>Fleet Management</h1>
+    <nav>
+        <select id="category">
+            <option value="">All Category</option>
+            <option value="Auto">Auto</option>
+            <option value="Car">Car</option>
+            <option value="Truck">Truck</option>
+            <option value="Bus">Bus</option>
+        </select>
+        <select id="availablity">
+            <option value="">All Availability</option>
+            <option value="Available">Available</option>
+            <option value="Unavailable">Unavailable</option>
+        </select>
+        <button id="clearfilter">Clear Filter</button>
+    </nav>
+    <aside>
+        <div id="sidebar">
+            <form id="sidebarform">
+                <input id="regno" type="text" placeholder="Reg No of Vehicle"><br>
+                <select id="sidebarcategory">
+                    <option value="">Select Category</option>
+                    <option value="Auto">Auto</option>
+                    <option value="Car">Car</option>
+                    <option value="Truck">Truck</option>
+                    <option value="Bus">Bus</option>
+                </select><br>
+                <input id="drivername" type="text" placeholder="Driver Name"><br>
+                <select id="sidebarAvailability">
+                    <option value="">Availability</option>
+                    <option value="Available">Available</option>
+                    <option value="Unavailable">Unavailable</option>
+                </select><br>
+                <button id="addfleetbtn" type="submit">Add Fleet</button>
+            </form>
+        </div>
+    </aside>
+    <main>
+        <div id="container">
+
+        </div>
+    </main>
+    <script>
+        let addfleet=document.getElementById("sidebarform");
+        addfleet.addEventListener("submit",addFleet);
+        let fleets=[];
+        function addFleet(event){
+            event.preventDefault();
+            let regno=document.getElementById("regno").value;
+            let vcategory=document.getElementById("sidebarcategory").value;
+            let dName=document.getElementById("drivername").value;
+            let avail=document.getElementById("sidebarAvailability").value;
+            let fleet={
+                regno,
+                vcategory,
+                dName,
+                avail
+            }
+            console.log(fleet);
+            fleets.push(fleet);
+
+        }
+    </script>
 </body>
 </html>
