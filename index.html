@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<body>
+    <input id="email" type="email" placeholder="Enter email id"><br>
+    <input id="password" type="password" placeholder="Enter password"><br>
+    <button id="login">Login</button>
+    <script>
+        let mail=document.getElementById("email");
+        console.log(mail);
+        let pwd=document.getElementById("password");
+        console.log(password);
+        let loginbtn=document.getElementById("login");
+        loginbtn.addEventListener("click",login);
+        function login(){
+            if(mail.value==="admin@gmail.com" && pwd.value === "admin1234"){
+                alert("Login success");
+                window.location.href="admin.html";
+            }
+            else{
+                alert("Wrong email or password");
+            }
+        }
+        
+    </script>
+</body>
+</html>
