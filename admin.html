@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
         #container{
             display: grid;
             grid-template-columns: repeat(3,1fr);
@@ -15,14 +18,24 @@
             background-color: white;
             padding: 8px;
             margin: 5px;
+            text-align: center;
         }
         .card img{
-            height: 160px;
-            width: 120px;
+            height: 180px;
+            width: 160px;
             border-radius: 6px;
         }
         button{
             border: none;
+            background-color: rgb(73, 100, 220);
+            color: white;
+            margin: 5px;
+            padding: 8px;
+            border-radius: 5px;
+        }
+        h1{
+            color: rgb(73, 100, 220);
+            text-align: center;
         }
     </style>
 </head>
@@ -89,7 +102,7 @@
             fleets.push(fleet);
             renderFleets(fleets);
         }
-        function renderFleets(){
+        function renderFleets(fleetList){
             let container=document.getElementById("container");
             fleets.forEach((fleet,index)=>{
                 let card=document.createElement("div");
@@ -104,8 +117,30 @@
                 driverName.textContent=fleet.dName;
                 let status=document.createElement("h4");
                 status.textContent=fleet.avail;
-                card.append(image,regNo,vCategory,driverName,status);
+
+                let update=document.createElement("button");
+                update.textContent="Update Driver";
+                update.addEventListener("click",()=>{
+                    let userInput=prompt("Enter New Driver Name");
+                    driverName.textContent=userInput;
+                })
+
+                let changeAvail=document.createElement("button");
+                changeAvail.textContent="Change Availability";
+                // changeAvail.addEventListener("change",()=>{
+
+                // })
+
+                let deletefleet=document.createElement("button");
+                deletefleet.textContent="Delete Vehicle";
+                deletefleet.addEventListener("click",()=>{
+                    fleet.remove();
+                    renderFleets(fleets);
+                })
+
+                card.append(image,regNo,vCategory,driverName,status,update,changeAvail,deletefleet);
                 container.appendChild(card);
+                
             })
             document.getElementById("regno").value="";
             document.getElementById("sidebarcategory").value;
