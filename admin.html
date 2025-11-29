@@ -47,9 +47,10 @@
             height: 100vh;
         }
         nav{
-            width: 70%;
+            width: 100%;
             box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
-            margin: 20px;
+            /* margin: 20px; */
+            margin-left: auto;
             padding: 5px;
             display: flex;
             justify-content: center;
@@ -100,6 +101,9 @@
         </div>
     </main>
     <script>
+    
+
+
         let addfleet=document.getElementById("sidebarform");
         addfleet.addEventListener("submit",addFleet);
         let fleets=[];
@@ -169,6 +173,9 @@
             document.getElementById("drivername").value;
             document.getElementById("sidebarAvailability").value;
         }
+        let navcat=document.getElementById("category");
+        let filtered=fleets.filter((fleet)=>fleet.vcategory===navcat);
+        renderFleets(fleets);
     </script>
 </body>
 </html>
