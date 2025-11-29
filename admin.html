@@ -32,6 +32,7 @@
             margin: 5px;
             padding: 8px;
             border-radius: 5px;
+            cursor: pointer;
         }
         h1{
             color: rgb(73, 100, 220);
@@ -127,14 +128,19 @@
 
                 let changeAvail=document.createElement("button");
                 changeAvail.textContent="Change Availability";
-                // changeAvail.addEventListener("change",()=>{
-
-                // })
+                 changeAvail.addEventListener("click",()=>{
+                    if(status.textContent==="Available"){
+                        status.textContent="Unavailable";
+                    }
+                    else{
+                        status.textContent="Available";
+                    }
+                 });
 
                 let deletefleet=document.createElement("button");
                 deletefleet.textContent="Delete Vehicle";
-                deletefleet.addEventListener("click",()=>{
-                    fleet.remove();
+                deletefleet.addEventListener("click",(fleet,index)=>{
+                    fleets.splice(index,1);
                     renderFleets(fleets);
                 })
 
