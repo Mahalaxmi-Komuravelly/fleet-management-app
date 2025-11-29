@@ -4,6 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
+    <style>
+        #container{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px;
+        }
+        .card{
+            box-shadow: 0px 2px 8px rgba(0,0,0,0.24);
+            background-color: white;
+            padding: 8px;
+            margin: 5px;
+        }
+        .card img{
+            height: 160px;
+            width: 120px;
+            border-radius: 6px;
+        }
+        button{
+            border: none;
+        }
+    </style>
 </head>
 <body>
     <h1>Fleet Management</h1>
@@ -66,7 +87,30 @@
             }
             console.log(fleet);
             fleets.push(fleet);
-
+            renderFleets(fleets);
+        }
+        function renderFleets(){
+            let container=document.getElementById("container");
+            fleets.forEach((fleet,index)=>{
+                let card=document.createElement("div");
+                card.setAttribute("class","card");
+                let image=document.createElement("img");
+                image.src="https://coding-platform.s3.amazonaws.com/dev/lms/tickets/5e80fcb6-3f8e-480c-945b-30a5359eb40e/JNmYjkVr3WOjsrbu.png";
+                let regNo=document.createElement("h3");
+                regNo.textContent=fleet.regno;
+                let vCategory=document.createElement("h4");
+                vCategory.textContent=fleet.vcategory;
+                let driverName=document.createElement("h4");
+                driverName.textContent=fleet.dName;
+                let status=document.createElement("h4");
+                status.textContent=fleet.avail;
+                card.append(image,regNo,vCategory,driverName,status);
+                container.appendChild(card);
+            })
+            document.getElementById("regno").value="";
+            document.getElementById("sidebarcategory").value;
+            document.getElementById("drivername").value;
+            document.getElementById("sidebarAvailability").value;
         }
     </script>
 </body>
