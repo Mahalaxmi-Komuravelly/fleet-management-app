@@ -169,13 +169,12 @@
                 
             })
             document.getElementById("regno").value="";
-            document.getElementById("sidebarcategory").value;
-            document.getElementById("drivername").value;
-            document.getElementById("sidebarAvailability").value;
+            document.getElementById("sidebarcategory").value="";
+            document.getElementById("drivername").value="";
+            document.getElementById("sidebarAvailability").value="";
         }
         let navcat=document.getElementById("category");
-        let filtered=fleets.filter((fleet)=>fleet.vcategory===navcat);
-        renderFleets(fleets);
+        let filtered=fleets.filter((fleet)=>fleet.vCategory===navcat);
     </script>
 </body>
 </html>
